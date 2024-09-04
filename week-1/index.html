@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASIC HTML FORM</title>
+</head>
+
+<body>
+    <h1>THIS IS A COMPLAINTS FORM</h1>
+    <p>Kindly fill in your details below</p>
+
+    <form action="" type="">
+        <label for="fname">First Name</label> <br>
+        <input type="text" placeholder="Samuel" name="fname"  id="fname">      
+       
+        <br><br>
+        <label for="lname">Last Name</label> <br>
+        <input type="text" placeholder="Omobuwa" name="lname" id="lname">  
+
+        <br><br> 
+
+        <label for="email">Email</label>  <br>
+        <input type="text" placeholder="mail@gmail.com" name="email" id="email"> 
+
+        <br><br> 
+
+        <label for="mobileNum">Phone Number:</label> <br>
+        <input type="text" placeholder="08050000000" name="mobileNum" id="mobileNum"> 
+
+        <br><br> 
+
+        <label for="complaintsCategory">Complaints Category:</label> <br>
+        <select name="age" id="age">
+            <option value="dispute">Dispute</option>
+            <option value="ussd">USSD</option>
+            <option value="AccountRestriction">Account Restriction</option>
+             <option value="pos">POS-related</option>
+        </select>
+        <br><br> 
+
+        <label for="complaintsDetails">Complaints Description:</label> <br>
+        <textarea name="message" rows="10" cols="30" ></textarea>
+
+        <br><br>
+
+        <input type="submit">
+        <br><br>
+
+    </form>
+
+        <table style="width: 100%; border:1px solid black">
+            <tr style="border: 1px solid black;">
+                <th>S/N</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Complaint Category</th>
+            </tr>
+            <tr style="border: 1px solid black;">
+                <td>01</td>
+                <td>Samuel Omobuwa</td>
+                <td>080880000000</td>
+                <td>example@gmail.com</td>
+                <td>Dispute</td>
+            </tr>
+            <tr style="border: 2px solid black;">
+                <td>02</td>
+                <td>John Harvest</td>
+                <td>0803456788</td>
+                <td>example2@gmail.com</td>
+                <td>Account Restriction</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>Mike Adenuga</td>
+                <td>08085335578</td>
+                <td>example3@gmail.com</td>
+                <td>USSD</td>
+            </tr>
+            
+        </table>
+    
+
+    <p>For addtional learing, please visit</p>
+    <a href="  https://google.com">Google</a>
+
+    <br><br>
+    <img src="./components/Rev quotes -2.png" alt="quotes message" style="width: 20rem; height: 20rem;">
+</body>
+</html>
