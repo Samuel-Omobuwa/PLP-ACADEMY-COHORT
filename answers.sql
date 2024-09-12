@@ -1,64 +1,57 @@
--- Selecting my data base
-USE hospital_db;
-
 -- question 1.1
-SELECT 
-first_name, 
-last_name,
-date_of_birth
-FROM patients;
+SELECT COUNT(*) 
+AS total_admissions
+FROM admissions
 
 -- question 1.2
 SELECT 
-provider_id, 
-first_name,
-provider_specialty
-FROM providers;
+AVG(DATEDIFF(discharge_date, admission_date)) 
+AS avg_day_of_stay
+FROM admissions,  discharges;
 
 -- question 2.1
-SELECT * 
-FROM patients
-WHERE first_name LIKE 'Ab%';
+SELECT primary_diagnosis, 
+COUNT(*) AS total_admission
+FROM admissions
+GROUP BY primary_diagnosis;
 
 -- question 2.2
-SELECT * 
-FROM providers
-WHERE provider_specialty LIKE '%y';
+SELECT service, AVG(DATEDIFF(discharge_date, admission_date)) AS avg_time_of_stay
+FROM admissions, discharges
+GROUP BY  service
+
+-- question 2.3
+SELECT discharge_disposition, COUNT(*) AS total_discharges
+FROM discharges
+GROUP BY discharge_disposition;
 
 -- question 3.1
-SELECT * 
-FROM patients
-WHERE date_of_birth > '1980-01-01';
+SELECT service, COUNT(*) AS total_service
+FROM admissions
+GROUP BY service
+HAVING COUNT(*) > 5;
 
 -- question 3.2
-SELECT * 
-FROM ed_visits
-WHERE acuity >= '2';
+SELECT primary_diagnosis, AVG(DATEDIFF(discharge_date, admission_date)) AS avg_time_of_stay
+FROM admissions, discharges
+WHERE primary_diagnosis = "Stroke";
 
 -- question 4.1
-SELECT * FROM patients
-WHERE language = 'Spanish'
+SELECT acuity, COUNT(*) AS total_aquity
+FROM ed_visits
+GROUP BY acuity;
 
 -- question 4.2
-SELECT * 
-FROM ed_visits
-WHERE reason_for_visit = 'Migraine'  
-AND ed_disposition = 'Admitted' ;
-
-
--- question 4.3
-SELECT * 
-FROM patients
-WHERE date_of_birth 
-BETWEEN '1975-01-01' 
-AND '1980-12-31';
+SELECT primary_diagnosis, COUNT(*) AS total_admission
+FROM admissions
+GROUP BY primary_diagnosis, service;
 
 -- question 5.1
-SELECT first_name, last_name 
-FROM patients
-ORDER BY first_name ASC;
+SELECT MONTH(admission_date) AS month, COUNT(*) AS total_admission
+FROM admissions
+GROUP BY MONTH(admission_date);
 
 -- question 5.2
-SELECT * 
-FROM visits
-ORDER BY date_of_visit DESC;
+SELECT primary_diagnosis, MAX(DATEDIFF(discharge_date, admission_date)) AS max_length_of_day
+FROM admissions, discharges
+GROUP BY primary_diagnosis;
